@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            background-color: rgb(88, 88, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .center {
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        input {
+            width: 300px;
+            margin: 10px 0px;
+            padding: 10px;
+            border: 2px solid rgb(118, 204, 118);
+            outline: none;
+        }
+
+        #btn {
+            width: 220px;
+            height: 35px;
+            margin: 20px;
+            background-color: rgb(26, 202, 26);
+            color: #fff;
+            border-radius: 5px;
+            position: relative;
+            bottom: -15px;
+        }
+
+        p {
+            margin: 0px;
+            text-align: left;
+            color: red;
+        }
+    </style>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+</head>
+
+<body>
+
+    <div class="center">
+        <h1 class="Head">Login</h1>
+
+        <form action="" onsubmit="return validate()">
+            <input type="text" id="username" placeholder="Enter your User Name"><br>
+            <p id="usererror"></p>
+            <input type="password" id="password" placeholder="Enter your password"><br>
+            <p id="passerror"></p>
+            <button id="btn">Submit</button>
+        </form>
+
+    </div>
+        <script>
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+            var flag = 1
+             function validate(){
+                 if(username.value == ""){
+                    console.log("user empty");
+                    document.getElementById("usererror").innerHTML= "Username is empty";
+                    flag = 0;
+                 }
+                 else if(username.value.length < 3){
+                    document.getElementById("usererror").innerHTML= "Username should be greater than 3 character";
+                    flag = 0;
+                }
+                 else{
+                    document.getElementById("usererror").innerHTML= "";
+                    flag = 1;
+                 }
+                 if(password.value == ""){
+                    document.getElementById("passerror").innerHTML= "password is empty";
+                    flag = 0;
+                 }
+                 else if(password.value.length < 5){
+                    document.getElementById("passerror").innerHTML= "password must be more than 5 character";
+                    flag = 0;
+                 }
+                 else{
+                    document.getElementById("passerror").innerHTML= "";
+                    flag = 0;
+                 }
+                 if(flag){
+                    return true;
+                 }
+                 else{
+                    return false;
+                 }
+                 
+             }
+        </script>
+</body>
+
+</html>
